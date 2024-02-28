@@ -1,34 +1,38 @@
 import React from 'react'
-import { images } from "../constants"
+import { images } from "../constants/";
+
+const navItemInfo = [
+  {name: "Home"},
+  {name: "Articales"},
+  {name: "Pages"},
+  {name: "Pricing"},
+  {name: "Faq"},
+]
+const NavItem = ({name}) => {
+   return(
+    <li className='relative group'>
+            <a href='/' className="px-4 py-2">{name}</a>
+            <span className='text-blue-500 absolute transition-all duration-500 font-bold right-0 top-0 group-hover:right-[90%] opacity-0 group-hover:opacity-100'>/</span>
+          </li>
+   )
+}
 
 const Header = () => {
-  return(<sectio>
-    <Header className="container mx-auto px-5 flex justify-between">
+  return (<section>
+    <header className="container mx-auto px-5 flex justify-between py-4 items-center">
       <div>
-          <img src={images.Logo} alt ="logo" />
+        <img src={images.Logo} alt="logo" />
       </div>
-      <div className="flex gap-x-9">
-        <ul className="flex gap-x-5">
-          <li>
-            <a herf="/">Home</a>
-          </li>
-          <li>
-            <a herf="/">Articales</a>
-          </li>
-          <li>
-            <a herf="/">Pages</a>
-          </li>
-          <li>
-            <a herf="/">Pricing</a>
-          </li>
-          <li>
-            <a herf="/">Faq</a>
-          </li>
+      <div className="flex gap-x-9 items-center">
+        <ul className="flex gap-x-2 font-semibold">
+          {navItemInfo.map((item) => (
+            <NavItem key={item.name} name ={item.name}/>
+          ))}
         </ul>
-        <butten>Sign in</butten>
+        <button className="border-2 border-blue-500 px-6 py-2 rounded-full text-blue-500 font-semibold hover:bg-blue-500 hover:text-white transition-all duration-300">Sign in</button>
       </div>
-    </Header>
-  </sectio>) 
+    </header>
+  </section>)
 }
 
 export default Header;
