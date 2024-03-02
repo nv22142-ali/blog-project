@@ -22,7 +22,7 @@ const NavItem = ({ item}) => {
 <ul className='flex flex-col shadow-lg rounded-lg overflow-hidden'>
 {item.items.map((page) => (
    
-<a href='/' className='hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft'>
+<a href="/" className='hover:bg-dark-hard hover:text-white px-4 py-2 text-white lg:text-dark-soft'>
 {page}
 </a>
 ))}
@@ -44,12 +44,13 @@ const Header = () => {
   return (<section>
     <header className="container mx-auto px-5 flex justify-between py-4 items-center">
       <div>
-        <img className='w-16' src={images.Logo} alt="logo" />
+        <img className="w-16" src={images.Logo} alt="logo" />
       </div>
       <div className='lg:hidden z-50'>
         {navIsVisible ? (<AiOutlineClose className="w-6 h-6" onClick={navVisibilityHandler} />) : (<AiOutlineMenu className="w-6 h-6" onClick={navVisibilityHandler} />)}
       </div>
-      <div className={'${navIsVisible ? "right-0": "-right-full"} transition-all duration-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-rox fixed top-0 bottom-0 lg:static gap-x-9 items-center'}>
+      <div className={`${
+        navIsVisible ? "right-0" : "-right-full" } transition-all duration-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-rox fixed top-0 bottom-0 lg:static gap-x-9 items-center`}>
         <ul className="text-white items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
           {navItemInfo.map((item) => (
             <NavItem key={item.name} item={item}/>
